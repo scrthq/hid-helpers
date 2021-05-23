@@ -28,6 +28,27 @@ config.yml
     Default value here is `config.yml`. If you have a custom path to your config file, pass it as the last argument to the script.
 ```
 
+## Sample Configuration
+
+```yaml
+log_file: hid_helper.log
+log_level: INFO
+polling_frequency_ms: 2000
+devices:
+- product_id: 0
+  vendor_id: 65261
+  usage_page: 65376
+  usage: 97
+  manufacturer_string: splitkb
+  product_string: Kyria Keyboard
+  byte_strings:
+  - '1,1,2'
+- manufacturer_string: 'Eye Oh! Designs'
+  product_string: babyv
+  byte_strings:
+  - '1,1,2'
+```
+
 ## Examples
 
 ```python
