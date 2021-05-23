@@ -52,31 +52,31 @@ devices:
 ## Examples
 
 ```python
-    $ python3 hid_helpers.py config.yml
+$ python3 hid_helpers.py config.yml
 
-    # Starts the controller in a loop, scanning for devices on the configuration and sending the specified bytes from the configuration.
+# Starts the controller in a loop, scanning for devices on the configuration and sending the specified bytes from the configuration.
 
-    ##########################################
+##########################################
 
-    $ python3 hid_helpers.py -a
-        # OR
-    $ python3 hid_helpers.py --list_all
+$ python3 hid_helpers.py -a
+    # OR
+$ python3 hid_helpers.py --list_all
 
-    # Prints all connected devices in YAML format
+# Prints all connected devices in YAML format
 
-    ##########################################
+##########################################
 
-    $ python3 hid_helpers.py -l config.yml
-        # OR
-    $ python3 hid_helpers.py --list_devices config.yml
+$ python3 hid_helpers.py -l config.yml
+    # OR
+$ python3 hid_helpers.py --list_devices config.yml
 
-    # Prints the connected devices matching what is present on the config file under `devices`
+# Prints the connected devices matching what is present on the config file under `devices`
 
-    ##########################################
+##########################################
 
-    $ python3 hid_helpers.py -l
-        # OR
-    $ python3 hid_helpers.py --list_devices
+$ python3 hid_helpers.py -l
+    # OR
+$ python3 hid_helpers.py --list_devices
 
-    # If no config file is passed with the list_devices parameter, all connected devices are printed instead
+# If no config file is passed with the list_devices parameter, all connected devices are printed instead
 ```
