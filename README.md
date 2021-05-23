@@ -1,7 +1,7 @@
 # HID Helper Syntax
 
 ```python
-hid_helpers.py [options] config.yml
+$ python3 hid_helpers.py [options] config.yml
 ```
 
 ## Options
