@@ -81,3 +81,45 @@ $ python3 hid_helpers.py --list_devices
 # If no config file is passed with the list_devices parameter, the script will check for the default `config.yml` file.
 # If that is not present, all connected devices are printed instead.
 ```
+
+## Sample QMK Implementation
+
+Can be seen in my userland setup in my fork of QMK: <https://github.com/scrthq/qmk_firmware/blob/7dff97421c8d79690725e35780ec17c959c23f3f/users/scrthq/scrthq.c#L108-L142>
+
+```cpp
+#ifdef RAW_ENABLE
+void raw_hid_receive(uint8_t *data, uint8_t length) {
+    uint8_t *command_data = &(data[1]);
+    #ifdef CONSOLE_ENABLE
+        uint8_t *command_id   = &(data[0]);
+        uprintf("HID COM ID: [%u], DATA: [%u]\n", *command_id, *command_data);
+    #endif
+    switch (*command_data) {
+        #ifdef USE_BABBLEPASTE
+        #ifdef BABL_MAC
+        case set_babblepaste_mac: {
+            if (babble_mode != BABL_MAC_MODE) {
+                set_babble_mode(BABL_MAC_MODE);
+                set_layer_led_user();
+            }
+            break;
+        }
+        #endif
+        #ifdef BABL_WINDOWS
+        case set_babblepaste_win: {
+            if (babble_mode != BABL_WINDOWS_MODE) {
+                set_babble_mode(BABL_WINDOWS_MODE);
+                set_layer_led_user();
+            }
+            break;
+        }
+        default: {
+            break;
+        }
+        #endif
+        #endif
+    }
+    raw_hid_send(data, length);
+}
+#endif
+```
