@@ -78,5 +78,6 @@ $ python3 hid_helpers.py -l
     # OR
 $ python3 hid_helpers.py --list_devices
 
-# If no config file is passed with the list_devices parameter, the script will check for the default `config.yml` file. If that is not present, all connected devices are printed instead.
+# If no config file is passed with the list_devices parameter, the script will check for the default `config.yml` file.
+# If that is not present, all connected devices are printed instead.
 ```
