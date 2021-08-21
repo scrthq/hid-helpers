@@ -62,11 +62,8 @@ class HIDController(object):
             for device in self.config['devices']:
                 for i in hid.enumerate():
                     if (
-                        ('product_id' in device.keys() and i['product_id'] == device['product_id']) and
-                        ('vendor_id' in device.keys() and i['vendor_id'] == device['vendor_id']) and
-                        ('usage_page' in device.keys() and i['usage_page'] == device['usage_page']) and
-                        ('usage' in device.keys()
-                         and i['usage'] == device['usage'])
+                        ('manufacturer_string' in device.keys() and i['manufacturer_string'] == device['manufacturer_string']) and
+                        ('product_string' in device.keys() and i['product_string'] == device['product_string'])
                     ):
                         if verbose:
                             self.logger.info(
